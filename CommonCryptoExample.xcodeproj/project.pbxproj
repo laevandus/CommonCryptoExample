@@ -8,20 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		C86DE432209609FC001DDC3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86DE431209609FB001DDC3E /* AppDelegate.swift */; };
-		C86DE434209609FC001DDC3E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86DE433209609FC001DDC3E /* ViewController.swift */; };
 		C86DE437209609FC001DDC3E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C86DE435209609FC001DDC3E /* Main.storyboard */; };
 		C86DE439209609FD001DDC3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C86DE438209609FD001DDC3E /* Assets.xcassets */; };
 		C86DE43C209609FD001DDC3E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C86DE43A209609FD001DDC3E /* LaunchScreen.storyboard */; };
+		C86DE44420960C63001DDC3E /* DataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86DE44320960C63001DDC3E /* DataExtensions.swift */; };
+		C86DE44720961854001DDC3E /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = C86DE44520961854001DDC3E /* LICENSE */; };
+		C86DE44820961854001DDC3E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = C86DE44620961854001DDC3E /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C86DE42E209609FB001DDC3E /* CommonCryptoExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CommonCryptoExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C86DE431209609FB001DDC3E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C86DE433209609FC001DDC3E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C86DE436209609FC001DDC3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C86DE438209609FD001DDC3E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C86DE43B209609FD001DDC3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C86DE43D209609FD001DDC3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C86DE44320960C63001DDC3E /* DataExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExtensions.swift; sourceTree = "<group>"; };
+		C86DE44520961854001DDC3E /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		C86DE44620961854001DDC3E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +42,8 @@
 		C86DE425209609FB001DDC3E = {
 			isa = PBXGroup;
 			children = (
+				C86DE44520961854001DDC3E /* LICENSE */,
+				C86DE44620961854001DDC3E /* README.md */,
 				C86DE430209609FB001DDC3E /* CommonCryptoExample */,
 				C86DE42F209609FB001DDC3E /* Products */,
 			);
@@ -55,7 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				C86DE431209609FB001DDC3E /* AppDelegate.swift */,
-				C86DE433209609FC001DDC3E /* ViewController.swift */,
+				C86DE44320960C63001DDC3E /* DataExtensions.swift */,
 				C86DE435209609FC001DDC3E /* Main.storyboard */,
 				C86DE438209609FD001DDC3E /* Assets.xcassets */,
 				C86DE43A209609FD001DDC3E /* LaunchScreen.storyboard */,
@@ -124,6 +130,8 @@
 			files = (
 				C86DE43C209609FD001DDC3E /* LaunchScreen.storyboard in Resources */,
 				C86DE439209609FD001DDC3E /* Assets.xcassets in Resources */,
+				C86DE44820961854001DDC3E /* README.md in Resources */,
+				C86DE44720961854001DDC3E /* LICENSE in Resources */,
 				C86DE437209609FC001DDC3E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -135,8 +143,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C86DE434209609FC001DDC3E /* ViewController.swift in Sources */,
 				C86DE432209609FC001DDC3E /* AppDelegate.swift in Sources */,
+				C86DE44420960C63001DDC3E /* DataExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +297,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.augmentedcode.CommonCryptoExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INCLUDE_PATHS = "$(PROJECT_DIR)/CommonCrypto/";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -307,6 +316,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.augmentedcode.CommonCryptoExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INCLUDE_PATHS = "$(PROJECT_DIR)/CommonCrypto/";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
