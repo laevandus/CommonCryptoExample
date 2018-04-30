@@ -26,7 +26,7 @@ extension Data {
         switch algorithm {
         case .sha256:
             withUnsafeBytes { (bytes) -> Void in
-                CC_SHA256(bytes, CC_LONG(algorithm.digestLength), hashBytes)
+                CC_SHA256(bytes, CC_LONG(count), hashBytes)
             }
         }
         
