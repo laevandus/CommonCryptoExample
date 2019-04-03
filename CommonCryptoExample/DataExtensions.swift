@@ -67,10 +67,10 @@ extension Data {
     func authenticationCode(for algorithm: Algorithm, secretKey: Data) -> Data {
         let hashBytes = UnsafeMutablePointer<UInt8>.allocate(capacity: algorithm.digestLength)
         defer { hashBytes.deallocate() }
-        withUnsafeBytes { (bytes) -> Void in
-            secretKey.withUnsafeBytes { (secretKeyBytes) -> Void in
-                CCHmac(CCHmacAlgorithm(algorithm.rawValue), secretKeyBytes, secretKey.count, bytes, count, hashBytes)
-            }
+        withUnsafeBytes { (buffer) in
+            secretKey.withUnsafeBytes({ (secretKeyBuffer) in
+                CCHmac(CCHmacAlgorithm(algorithm.rawValue), secretKeyBuffer.baseAddress!, secretKeyBuffer.count, buffer.baseAddress!, buffer.count, hashBytes)
+            })
         }
         return Data(bytes: hashBytes, count: algorithm.digestLength)
     }
@@ -82,28 +82,28 @@ extension Data {
         defer { hashBytes.deallocate() }
         switch algorithm {
         case .md5:
-            withUnsafeBytes { (bytes) -> Void in
-                CC_MD5(bytes, CC_LONG(count), hashBytes)
+            withUnsafeBytes { (buffer) -> Void in
+                CC_MD5(buffer.baseAddress!, CC_LONG(buffer.count), hashBytes)
             }
         case .sha1:
-            withUnsafeBytes { (bytes) -> Void in
-                CC_SHA1(bytes, CC_LONG(count), hashBytes)
+            withUnsafeBytes { (buffer) -> Void in
+                CC_SHA1(buffer.baseAddress!, CC_LONG(buffer.count), hashBytes)
             }
         case .sha224:
-            withUnsafeBytes { (bytes) -> Void in
-                CC_SHA224(bytes, CC_LONG(count), hashBytes)
+            withUnsafeBytes { (buffer) -> Void in
+                CC_SHA224(buffer.baseAddress!, CC_LONG(buffer.count), hashBytes)
             }
         case .sha256:
-            withUnsafeBytes { (bytes) -> Void in
-                CC_SHA256(bytes, CC_LONG(count), hashBytes)
+            withUnsafeBytes { (buffer) -> Void in
+                CC_SHA256(buffer.baseAddress!, CC_LONG(buffer.count), hashBytes)
             }
         case .sha384:
-            withUnsafeBytes { (bytes) -> Void in
-                CC_SHA384(bytes, CC_LONG(count), hashBytes)
+            withUnsafeBytes { (buffer) -> Void in
+                CC_SHA384(buffer.baseAddress!, CC_LONG(buffer.count), hashBytes)
             }
         case .sha512:
-            withUnsafeBytes { (bytes) -> Void in
-                CC_SHA512(bytes, CC_LONG(count), hashBytes)
+            withUnsafeBytes { (buffer) -> Void in
+                CC_SHA512(buffer.baseAddress!, CC_LONG(buffer.count), hashBytes)
             }
         }
         return Data(bytes: hashBytes, count: algorithm.digestLength)
